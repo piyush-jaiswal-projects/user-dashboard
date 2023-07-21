@@ -7,10 +7,10 @@ export default function Canvas() {
 
     return (
         <>
-            {context.view === "Dashboard" && <Dashboard />}
-            {context.view === "Assessment" && <Assessment />}
-            {context.view === "My Library" && <Library />}
-            {context.view === "Round Status" && <RoundStatus />}
+            {context?.view === "Dashboard" && <Dashboard />}
+            {context?.view === "Assessment" && <Assessment />}
+            {context?.view === "My Library" && <Library />}
+            {context?.view === "Round Status" && <RoundStatus />}
         </>
     )
 }

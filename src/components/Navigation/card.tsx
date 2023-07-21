@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext, useEffect} from 'react'
 import { ViewContext } from '../../App'
 
 type Link = {
@@ -15,12 +15,14 @@ export default function Card(props: Props) {
 
     var context = useContext(ViewContext)
     
-    if (context?.view === props.data.title) {
-        document.getElementById(props.data.title)?.classList.add("navcard-active")
-    }
-    else {
-        document.getElementById(props.data.title)?.classList.remove("navcard-active")
-    }
+    useEffect(() => {
+        if (context?.view === props.data.title) {
+            document.getElementById(props.data.title)?.classList.add("navcard-active")
+        }
+        else {
+            document.getElementById(props.data.title)?.classList.remove("navcard-active")
+        }
+    }, [context])
 
     const navigateItem = () => {
         props.clickHandler(props.data.title);
