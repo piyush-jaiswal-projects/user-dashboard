@@ -25,6 +25,17 @@ code {
   color: #0073E6;
 }
 
-.navcard-active image{
-  color: red;
+#menu{
+  left: -100vw;
+  transition: left 0.3s ease;
+  animation: slidein ease-out 1s forwards;
+}
+
+@keyframes slidein {
+  from{
+    left: -100vw
+  }
+  to{
+    left: 0vw;
+  }
 }

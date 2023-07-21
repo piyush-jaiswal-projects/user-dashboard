@@ -22,6 +22,7 @@ export default function Card(props: Props) {
         else {
             document.getElementById(props.data.title)?.classList.remove("navcard-active")
         }
+        //eslint-disable-next-line
     }, [context])
 
     const navigateItem = () => {
@@ -32,13 +33,14 @@ export default function Card(props: Props) {
         <div
             id={props.data.title}
             onClick={navigateItem}
-            className='inline-flex md:flex cursor-pointer my-3 flex-col items-center justify-center text-center p-1 mx-auto w-[90%] h-[80px]'>
+            className='inline-block md:flex cursor-pointer my-3 flex-col 
+            items-center justify-center text-center p-1 mx-auto w-[80%] h-[90px]'>
             <img
                 className='mx-auto'
                 src={props.data.image}
                 alt={props.data.title} />
             
-            <p className='text-[1rem]'>
+            <p className='lg:text-[1.2vw]'>
                 {props.data.title}
             </p>
         </div>
