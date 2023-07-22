@@ -72,6 +72,15 @@ code {
   }
 }
 
+.analytics{
+  height: 0px;
+  transition: height 0.5s linear;
+}
+
+.slidedown{
+  height: 450px;
+}
+
 button{
   transition: background 0.1s ease;
 }
@@ -80,4 +89,8 @@ button{
   border-bottom: #0073E6 4px solid;
   color: #0073E6;
   font-weight: bold;
+}
+
+.clicked{
+  border: #0073E6 2px solid;
 }

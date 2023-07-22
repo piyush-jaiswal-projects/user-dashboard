@@ -1,7 +1,8 @@
 import React from 'react'
-import { PlusIcon } from '../../assets/icons';
+import { AnalyticsIcon, FunnelIcon, PlusIcon, SearchIcon } from '../../assets/icons';
 import AssessCard from './assessCard';
 import { myAssessCardInfo, unstopAssessCardInfo } from '../../data/assessCard';
+import useWindowWidth from '../../hooks/useWindowWidth';
 
 export default function Panel(props: {
   title: string;
@@ -9,11 +10,28 @@ export default function Panel(props: {
 }) {
 
   const cardInfoArray = props.view === "my" ? myAssessCardInfo : unstopAssessCardInfo
+  const width = useWindowWidth()
+
+  const openAnalytics = () => {
+    document.getElementById("analytics")?.classList.toggle("slidedown")
+    document.getElementById("analytics-btn")?.classList.toggle("clicked")
+  }
 
     return (
       <div className="w-[100vw] md:w-[100%] mx-auto p-2">
-        <section className="w-[90%]">
+        <section className="w-[90%] flex justify-between">
           <h1 className="text-2xl text-left w-[100%]">{props.title}</h1>
+          {width <= 768 && 
+            <div className='flex justify-center items-center'>
+              <img className='p-2' src={SearchIcon} alt="" />
+              <img className='p-2' src={FunnelIcon} alt="" />
+              <img
+                onClick={openAnalytics}
+                id="analytics-btn"
+                className='cursor-pointer rounded-full p-2'
+                src={AnalyticsIcon} alt="" />
+            </div>
+          }
         </section>
 
         <div className="flex justify-center items-center lg:justify-start flex-wrap m-2">

@@ -8,12 +8,12 @@ export default function View(props: { currAssessment: string }) {
     <>
       {props.currAssessment === "my" ? (
         <div className="w-[100vw] md:w-[100%]">
-          {/* <Overview data={myAssessmentData} /> */}
+          <Overview data={myAssessmentData} />
           <Panel title="My Assessment" view={props.currAssessment} />
         </div>
       ) : (
         <div className="w-[100vw] md:w-[100%]">
-                      {/* <Overview data={unstopAssessmentData} /> */}
+                      <Overview data={unstopAssessmentData} />
                        <Panel title="Unstop Assessment" view={props.currAssessment} />
         </div>
       )}

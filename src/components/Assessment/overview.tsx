@@ -1,10 +1,9 @@
 import React from "react";
-import {
-  CandidateEmailIcon,
-  CandidateIcon,
-  LinkIcon,
-  TotalAssessIcon,
-} from "../../assets/icons";
+import TotalAssessment from "./Analytics/totalAssessment";
+import Candidates from "./Analytics/candidates";
+import CandidateSource from "./Analytics/candidateSources";
+import TotalPurposes from "./Analytics/totalPurposes";
+import useWindowWidth from "../../hooks/useWindowWidth";
 
 type Props = {
     data: {
@@ -24,97 +23,82 @@ type Props = {
 }
 
 export default function Overview(props: Props) {
+  const width = useWindowWidth()
   return (
-    <div className="w-[100%] mx-2 p-2 overflow-x-hidden">
+    <div className="w-[100%] p-2 overflow-x-hidden">
+      {width > 768 ? 
+        <LargeScreenLayout data={props.data} />
+        : 
+        <SmallScreenLayout data={props.data} />
+      }
+    </div>
+  );
+}
+
+function LargeScreenLayout(props: Props) {
+  return (
+    <>
       <section className="w-[90%]">
         <h1 className="text-2xl text-left w-[100%]">Assessments Overview</h1>
       </section>
+    <div
+      className="w-[100%] mx-auto flex justify-center flex-wrap items-start 
+          border-2 rounded-lg my-2"
+    >
+      <TotalAssessment totalAssessment={props.data.totalAssessment} />
+      
+      <Candidates
+        totalCandidates={props.data.totalCandidates}
+        totalCandidatesIncrement={props.data.totalCandidatesIncrement}
+        whoAttempted={props.data.whoAttempted}
+        whoAttemptedIncrement={props.data.whoAttemptedIncrement}
+      />
 
-      <div
-        className="w-[100%] mx-auto flex justify-center flex-wrap items-center 
-            border-2 rounded-lg my-2"
-      >
-        <div className="border border-l-0 p-5 text-left h-[130px]">
-          <h1 className="w-[100%] text-md text-left font-semibold">
-            Total Assessment
-          </h1>
-          <div className="flex justify-start items-center my-3">
-            <img className="mx-2" src={TotalAssessIcon} alt="" />
-            <div className="px-2 mx-2">
-              <span className="flex justify-start items-center">
-                              <p className="text-2xl font-bold">{props.data.totalAssessment}</p>
-              </span>
-            </div>
-          </div>
-        </div>
+      <CandidateSource
+        email={props.data.email}
+        emailIncrement={props.data.emailIncrement}
+        socialShare={props.data.socialShare}
+        socialShareIncrement={props.data.socialShareIncrement}
+        uniqueLink={props.data.uniqueLink}
+        uniqueLinkIncrement={props.data.uniqueLinkIncrement}
+      />
 
-        <div className="border p-5 text-left h-[130px]">
-          <h1 className="w-[100%] text-md text-left font-semibold">
-            Candidates
-          </h1>
-          <div className="flex justify-start items-center my-2">
-            <img className="mx-2" src={CandidateIcon} alt="" />
-            <div className="px-2 mx-2 border-r-2">
-              <span className="flex justify-start items-center">
-                              <p className="text-2xl font-bold">{props.data.totalCandidates}</p>
-                              <p className="text-md text-[#05C165] mx-2 font-bold">+{props.data.totalCandidatesIncrement}</p>
-              </span>
-              <label>Total Candidates</label>
-            </div>
-            <div className="px-2 mx-2">
-              <span className="flex justify-start items-center">
-                              <p className="text-2xl font-bold">{props.data.whoAttempted}</p>
-                              <p className="text-md text-[#05C165] mx-2 font-bold">+{props.data.whoAttemptedIncrement}</p>
-              </span>
-              <label>Who Attempted</label>
-            </div>
-          </div>
+      <TotalPurposes totalPurpose={props.data.totalPurpose} />
         </div>
+    </>
+  )
+}
 
-        <div className="h-[130px] border p-5 text-left">
-          <h1 className="w-[100%] text-md text-left font-semibold">
-            Candidates Source
-          </h1>
-          <div className="flex justify-start items-center my-2">
-            <img className="mx-2" src={CandidateEmailIcon} alt="" />
-            <div className="px-2 mx-2 border-r-2">
-              <span className="flex justify-start items-center">
-                              <p className="text-2xl font-bold">{props.data.email}</p>
-                              <p className="text-md text-[#05C165] mx-2 font-bold">+{props.data.emailIncrement}</p>
-              </span>
-              <label>E-mail</label>
-            </div>
-            <div className="px-2 mx-2 border-r-2">
-              <span className="flex justify-start items-center">
-                              <p className="text-2xl font-bold">{props.data.socialShare}</p>
-                              <p className="text-md text-[#05C165] mx-2 font-bold">+{props.data.socialShareIncrement}</p>
-              </span>
-              <label>Social Share</label>
-            </div>
-            <div className="px-2 mx-2">
-              <span className="flex justify-start items-center">
-                              <p className="text-2xl font-bold">{props.data.uniqueLink}</p>
-                              <p className="text-md text-[#05C165] mx-2 font-bold">+{props.data.uniqueLinkIncrement}</p>
-              </span>
-              <label>Unique Link</label>
-            </div>
-          </div>
-        </div>
-
-        <div className="h-[130px] border p-5 text-left">
-          <h1 className="w-[100%] text-md text-left font-semibold">
-            Total Purpose
-          </h1>
-          <div className="flex justify-start items-center my-3">
-            <img className="mx-2" src={LinkIcon} alt="" />
-            <div className="px-2 mx-2">
-              <span className="flex justify-start items-center">
-                              <p className="text-2xl font-bold">{props.data.totalPurpose}</p>
-              </span>
-            </div>
-          </div>
-        </div>
+function SmallScreenLayout(props: Props) {
+  return (
+    <div id="analytics" className="analytics">
+      <section className="w-[90%]">
+        <h1 className="text-xl pt-1 text-left w-[100%]">Assessments Overview</h1>
+      </section>
+    <div
+      className="border rounded-lg mx-auto w-[100%]"
+    >
+      <div className="flex flex-row justify-center items-center">
+        <TotalAssessment totalAssessment={props.data.totalAssessment} />
+        <TotalPurposes totalPurpose={props.data.totalPurpose} />
       </div>
+      
+      <Candidates
+        totalCandidates={props.data.totalCandidates}
+        totalCandidatesIncrement={props.data.totalCandidatesIncrement}
+        whoAttempted={props.data.whoAttempted}
+        whoAttemptedIncrement={props.data.whoAttemptedIncrement}
+      />
+
+      <CandidateSource
+        email={props.data.email}
+        emailIncrement={props.data.emailIncrement}
+        socialShare={props.data.socialShare}
+        socialShareIncrement={props.data.socialShareIncrement}
+        uniqueLink={props.data.uniqueLink}
+        uniqueLinkIncrement={props.data.uniqueLinkIncrement}
+      />
+        </div>
     </div>
-  );
+  )
 }
