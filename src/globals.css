@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgba(239, 239, 239, 0.469);
+  color: #1C4980;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -28,7 +29,13 @@ code {
 #menu{
   left: -100vw;
   transition: left 0.3s ease;
-  animation: slidein ease-out 1s forwards;
+  animation: slidein ease-in 0.7s forwards;
+}
+
+#menu.close-menu{
+  left: 0vw;
+  transition: left 0.3s ease;
+  animation: slideout ease-in 0.7s forwards;
 }
 
 @keyframes slidein {
@@ -39,3 +46,13 @@ code {
     left: 0vw;
   }
 }
+
+@keyframes slideout {
+  from{
+    left: 0vw
+  }
+  to{
+    left: -100vw;
+  }
+}
+

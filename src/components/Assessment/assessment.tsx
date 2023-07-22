@@ -14,7 +14,11 @@ export default function Assessment() {
 
 function MenuButton() {
     const handleClick = () => {
-        document.getElementById("menu")?.classList.toggle("hidden")
+        const menu = document.getElementById("menu")
+        menu?.classList.remove("close-menu")
+        if (menu?.classList.contains("hidden")) {
+            menu?.classList.remove("hidden")
+        }
     }
     
     return (
