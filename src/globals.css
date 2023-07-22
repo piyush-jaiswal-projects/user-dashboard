@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgba(239, 239, 239, 0.469);
+  background-color: #F2F8FE;
   color: #1C4980;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -56,3 +56,17 @@ code {
   }
 }
 
+#form{
+  bottom: -100vw;
+  transition: bottom 0.3s linear;
+  animation: slideup linear 0.3s forwards;
+}
+
+@keyframes slideup {
+  from{
+    bottom: -100vw
+  }
+  to{
+    bottom: 0vw;
+  }
+}

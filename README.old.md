@@ -1,7 +1,7 @@
 # user-dashboard
 
 //TODO:
-1. Responsiveness
-2. Color Correction
-3. Animated Overlay form - all devices
-4. Assessment Body
+1. Responsiveness - DONE
+2. Animated Overlay form - all devices
+3. Assessment Body
+4. Color Correction

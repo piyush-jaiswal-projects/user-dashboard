@@ -1,5 +1,5 @@
 import React, {createContext, useState} from "react";
-import { Navigation, Canvas } from "./components/index";
+import { Navigation, Canvas, Form } from "./components/index";
 
 type ContextData = {
   view: string
@@ -19,6 +19,7 @@ function App() {
     <div className="flex justify-between m-0 p-0 h-[100vw]">
       <ViewContext.Provider value={{ view: view }}>
 
+        <Form />
         <Navigation handler={handleViewChange} />
         <Canvas />
 
