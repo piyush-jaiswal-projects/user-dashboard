@@ -26,6 +26,7 @@ export default function Card(props: Props) {
     }, [context])
 
     const navigateItem = () => {
+        document.getElementById("menu")?.classList.add("close-menu")
         props.clickHandler(props.data.title);
     }
 

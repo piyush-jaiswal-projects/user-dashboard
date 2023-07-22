@@ -17,17 +17,33 @@ type Assessment = {
 export default function FormFields() {
   const [newAssessment, setAssessment] = useState<Assessment>({
     name: "",
-    purpose: "",
-    description: "",
+    purpose: "Select",
+    description: "Select",
     skill: "",
     skillList: ["UI/UX and Design", "No of Question", "Web Development"],
     duration: "",
   });
 
+  const validateForm = (): string => {
+    if (newAssessment.name.length === 0) return "Please enter Name"
+    else if (newAssessment.purpose === "Select") return "Please select Purpose"
+    else if (newAssessment.description === "Select") return "Please select Description"
+    else if (newAssessment.skillList.length === 0) return "Please enter Skills"
+    else if (newAssessment.duration === "") return "Please set Duration"
+    else return "Valid"
+  }
+
   const saveAssessment = (e: any) => {
     e.preventDefault();
-    console.log(newAssessment);
-    alert(newAssessment)
+    const msg = validateForm()
+    if (msg === "Valid") {
+      console.log(newAssessment);
+      document.getElementById("form")?.classList.add("hidden")
+      alert("Form Saved")
+    }
+    else {
+      alert(msg)
+    }
   };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,8 +79,9 @@ export default function FormFields() {
   };
 
   return (
-    <div className="w-[100%]">
-      <div className="w-[90%] mx-auto flex flex-col mt-1 p-1">
+      <div className="w-[95%] mx-auto flex flex-col mt-1 p-1">
+        
+        <div className="h-[65vh] overflow-scroll sm:h-auto">
         <TextInput
           title="name"
           text="Name of assessment"
@@ -112,12 +129,12 @@ export default function FormFields() {
           value={newAssessment.duration}
           changeHandler={onInputChange}
         />
+        </div>
 
         <Submit
           onSubmit={saveAssessment}
         />
 
       </div>
-    </div>
   );
 }

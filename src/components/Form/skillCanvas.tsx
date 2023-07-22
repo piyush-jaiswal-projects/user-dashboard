@@ -30,7 +30,7 @@ export default function SkillCanvas(props: Props) {
             );
           })}
         </div>
-        <div className="border-t border-[#1C4980] rounded-b-lg flex justify-between">
+        <div className="border-t border-[#1C4980] rounded-b-lg flex sm:justify-between">
           <input
             type="text"
             name={props.name}
