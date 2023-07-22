@@ -70,3 +70,7 @@ code {
     bottom: 0vw;
   }
 }
+
+button{
+  transition: background 0.1s ease;
+}
