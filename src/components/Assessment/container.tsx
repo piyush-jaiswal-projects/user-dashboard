@@ -62,8 +62,8 @@ export default function Container(props: { title: string; view: string }) {
         </div>
 
         {/* RENDERING CARDS FROM PREVIOUS DATA */}
-        {cardInfoArray.map((item) => {
-          return <AssessCard data={item} />;
+        {cardInfoArray.map((item, index) => {
+          return <AssessCard key={"card-"+index} data={item} />;
         })}
       </div>
     </div>
