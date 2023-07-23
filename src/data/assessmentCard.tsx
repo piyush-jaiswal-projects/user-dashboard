@@ -1,4 +1,7 @@
-export const myAssessCardInfo = [
+
+// ASSESSMENT CARDS DATA
+
+export const myAssessmentCardInfo = [
     {
         title: "Maths Assessment",
         purpose: "Job",
@@ -17,7 +20,7 @@ export const myAssessCardInfo = [
     }
 ]
 
-export const unstopAssessCardInfo = [
+export const unstopAssessmentCardInfo = [
     {
         title: "Maths Assessment",
         purpose: "Job",

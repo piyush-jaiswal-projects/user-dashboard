@@ -1,9 +1,10 @@
 import React from "react";
-import { CloseIcon, CloseRedIcon } from "../../assets/icons";
+import { CloseIcon, CloseRedIcon } from "../../assets";
 import useWindowWidth from "../../hooks/useWindowWidth";
 
+// FORM HEADER
 export default function Header() {
-  const width = useWindowWidth()
+  const width = useWindowWidth();
 
   return (
     <header className="flex justify-between items-center w-[90%] mx-auto border-b-2 h-[60px]">
@@ -16,7 +17,11 @@ export default function Header() {
         }}
         className={width <= 500 ? "rounded-full bg-red-100" : ""}
       >
-        <img className="w-[30px]" src={width <= 500 ? CloseRedIcon : CloseIcon} alt="close" />
+        <img
+          className="w-[30px]"
+          src={width <= 500 ? CloseRedIcon : CloseIcon}
+          alt="close"
+        />
       </button>
     </header>
   );

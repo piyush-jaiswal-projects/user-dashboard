@@ -1,11 +1,12 @@
 import React from "react";
-import { CloseIcon } from "../../assets/icons";
+import { CloseIcon } from "../../assets";
 
 type Skill = {
   title: string;
   delSkill: (skill: string) => void;
 };
 
+// SKILL COMPONENT
 export default function SkillWidget(props: Skill) {
   return (
     <span
@@ -15,6 +16,7 @@ export default function SkillWidget(props: Skill) {
       {props.title}
       <button
         onClick={() => {
+          // DELETE CURRENT SKILL
           props.delSkill(props.title);
         }}
       >

@@ -1,3 +1,6 @@
+
+// STATISTIC DATA
+
 export const myAssessmentData = {
     totalAssessment: "34",
     totalCandidates: "11,145",

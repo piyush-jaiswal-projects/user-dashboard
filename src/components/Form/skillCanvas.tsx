@@ -11,10 +11,12 @@ type Props = {
   changeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
+// SECTION TO ADD AND SHOW SKILLS DYNAMICALLY
 export default function SkillCanvas(props: Props) {
   return (
     <div className="mb-2">
       <label htmlFor="skill">Skills</label>
+
       <div className="border rounded-lg border-[#1C4980]">
         <div
           id="skillCanvas"
@@ -22,6 +24,7 @@ export default function SkillCanvas(props: Props) {
         >
           {props.skillList.map((skill, index) => {
             return (
+              // SKILL COMPONENT
               <SkillWidget
                 key={"skill-" + index}
                 title={skill}
@@ -30,6 +33,8 @@ export default function SkillCanvas(props: Props) {
             );
           })}
         </div>
+
+        {/* ADDING NEW SKILLS DYNAMICALLY */}
         <div className="border-t border-[#1C4980] rounded-b-lg flex sm:justify-between">
           <input
             type="text"
@@ -39,6 +44,7 @@ export default function SkillCanvas(props: Props) {
             value={props.skill}
             onChange={(e) => props.changeHandler(e)}
           />
+
           <button
             className="w-[10%]"
             onClick={() => {

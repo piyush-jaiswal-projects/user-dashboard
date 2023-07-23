@@ -6,13 +6,16 @@ import SkillCanvas from "./skillCanvas";
 import Submit from "./submit";
 
 type Assessment = {
-  name: string,
-  purpose: string,
-  description: string,
-  skill: string,
-  skillList: string[],
-  duration: string
+  name: string;
+  purpose: string;
+  description: string;
+  skill: string;
+  skillList: string[];
+  duration: string;
 };
+
+// VARIOUS FORM FUNCTIONS
+// EXTRACTED VARIOUS FIELDS AND SECTIONS AS SEPERATE COMPONENTS
 
 export default function FormFields() {
   const [newAssessment, setAssessment] = useState<Assessment>({
@@ -25,24 +28,23 @@ export default function FormFields() {
   });
 
   const validateForm = (): string => {
-    if (newAssessment.name.length === 0) return "Please enter Name"
-    else if (newAssessment.purpose === "Select") return "Please select Purpose"
-    else if (newAssessment.description === "Select") return "Please select Description"
-    else if (newAssessment.skillList.length === 0) return "Please enter Skills"
-    else if (newAssessment.duration === "") return "Please set Duration"
-    else return "Valid"
-  }
+    if (newAssessment.name.length === 0) return "Please enter Name";
+    else if (newAssessment.purpose === "Select") return "Please select Purpose";
+    else if (newAssessment.description === "Select") return "Please select Description";
+    else if (newAssessment.skillList.length === 0) return "Please enter Skills";
+    else if (newAssessment.duration === "") return "Please set Duration";
+    else return "Valid";
+  };
 
   const saveAssessment = (e: any) => {
     e.preventDefault();
-    const msg = validateForm()
+    const msg = validateForm();
     if (msg === "Valid") {
       console.log(newAssessment);
-      document.getElementById("form")?.classList.add("hidden")
-      alert("Form Saved")
-    }
-    else {
-      alert(msg)
+      document.getElementById("form")?.classList.add("hidden");
+      alert("Form Saved");
+    } else {
+      alert(msg);
     }
   };
 
@@ -51,14 +53,14 @@ export default function FormFields() {
       ...newAssessment,
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setAssessment({
       ...newAssessment,
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
   const deleteSkill = (skill: string) => {
     const newSkillList: string[] = newAssessment.skillList.filter(
@@ -79,9 +81,8 @@ export default function FormFields() {
   };
 
   return (
-      <div className="w-[95%] mx-auto flex flex-col mt-1 p-1">
-        
-        <div className="h-[55vh] sm:h-[65vh] md:h-[78vh] overflow-scroll">
+    <div className="w-[95%] mx-auto flex flex-col mt-1 p-1">
+      <div className="h-[55vh] sm:h-[65vh] md:h-[78vh] overflow-scroll">
         <TextInput
           title="name"
           text="Name of assessment"
@@ -112,14 +113,15 @@ export default function FormFields() {
           <option>Description 2</option>
         </Select>
 
+        {/* SECTION TO ADD AND SHOW SKILLS DYNAMICALLY */}
         <SkillCanvas
-          skillList= {newAssessment.skillList}
-          skill= {newAssessment.skill}
-          name= "skill"
-          placeholder= "Type Here"
-          delSkill= {deleteSkill}
-          addSkill= {addSkill}
-          changeHandler= {onInputChange}
+          skillList={newAssessment.skillList}
+          skill={newAssessment.skill}
+          name="skill"
+          placeholder="Type Here"
+          delSkill={deleteSkill}
+          addSkill={addSkill}
+          changeHandler={onInputChange}
         />
 
         <TextInput
@@ -129,12 +131,9 @@ export default function FormFields() {
           value={newAssessment.duration}
           changeHandler={onInputChange}
         />
-        </div>
-
-        <Submit
-          onSubmit={saveAssessment}
-        />
-
       </div>
+
+      <Submit onSubmit={saveAssessment} />
+    </div>
   );
 }

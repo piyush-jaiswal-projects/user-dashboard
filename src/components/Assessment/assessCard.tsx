@@ -5,7 +5,7 @@ import {
   ClockIcon,
   OptionsIcon,
   UrlIcon,
-} from "../../assets/icons";
+} from "../../assets";
 import useWindowWidth from "../../hooks/useWindowWidth";
 
 type Props = {
@@ -19,39 +19,40 @@ type Props = {
   };
 };
 
+// ASSESSMENT CARD
 export default function AssessCard(props: Props) {
-    const width = useWindowWidth()
+  const width = useWindowWidth();
 
-    const className = width > 1020 ?
-        "flex flex-col justify-center items-center w-[23rem] h-[13rem] border mx-[20px] rounded-lg p-3 my-[10px]" 
-    : 
-    "flex flex-col justify-center items-center w-[30rem] md:w-[23rem] h-[9rem] border md:mx-[20px] rounded-lg p-3 my-[10px]"
-    
+  const className =
+    width > 1020
+      ? "flex flex-col justify-center items-center w-[23rem] h-[13rem] border mx-[20px] rounded-lg p-3 my-[10px]"
+      : "flex flex-col justify-center items-center w-[30rem] md:w-[23rem] h-[9rem] border md:mx-[20px] rounded-lg p-3 my-[10px]";
+
   return (
-    <div
-      className={className}
-    >
+    <div className={className}>
       <div className="flex justify-between items-center w-[100%]">
-              <img src={AssessIcon} alt="" />
-              {width <= 1020 &&
-                  <CardBody
-                  title={props.data.title}
-                  purpose={props.data.purpose}
-                  date={props.data.date}
-                  type="small"
-              />
-              }
+        <img src={AssessIcon} alt="" />
+        {/* LAYOUT FOR SMALLER SCREENS */}
+        {width <= 1020 && (
+          <CardBody
+            title={props.data.title}
+            purpose={props.data.purpose}
+            date={props.data.date}
+            type="small"
+          />
+        )}
         <img className="cursor-pointer" src={OptionsIcon} alt="Options" />
       </div>
 
-          {width > 1020 &&
-              <CardBody
-                  title={props.data.title}
-                  purpose={props.data.purpose}
-              date={props.data.date}
-              type="large"
-          />
-          }
+      {/* LAYOUT FOR LARGER SCREENS */}
+      {width > 1020 && (
+        <CardBody
+          title={props.data.title}
+          purpose={props.data.purpose}
+          date={props.data.date}
+          type="large"
+        />
+      )}
 
       <div className="border-t border-dashed w-[100%] flex justify-between py-2 items-center">
         <div className="flex justify-start items-center">
@@ -89,24 +90,30 @@ export default function AssessCard(props: Props) {
 }
 
 function CardBody(props: {
-    title: string;
-    purpose: string;
-    date: string;
-    type: string;
+  title: string;
+  purpose: string;
+  date: string;
+  type: string;
 }) {
-    const className = props.type === "large" ? "w-[100%] my-1 mb-4" : "w-[100%] mx-2 my-1 mb-4"
-    return (
-        <div className={className}>
-        <h1 className="w-[100%] text-left font-semibold text-lg">
-          {props.title}
-        </h1>
-        <div className="flex justify-start items-center">
-          <p className="text-sm text-left font-semibold border-r pr-2">
-            {props.purpose}
-          </p>
-          <img className="mx-2" src={props.type === "large" ? CalendarIcon : ClockIcon} alt="Date" />
-          <p className="text-gray text-sm">{props.date}</p>
-        </div>
-          </div>
-    )
+  // EXTRACTED VARIABLE LAYOUT COMPONENT
+  const className =
+    props.type === "large" ? "w-[100%] my-1 mb-4" : "w-[100%] mx-2 my-1 mb-4";
+  return (
+    <div className={className}>
+      <h1 className="w-[100%] text-left font-semibold text-lg">
+        {props.title}
+      </h1>
+      <div className="flex justify-start items-center">
+        <p className="text-sm text-left font-semibold border-r pr-2">
+          {props.purpose}
+        </p>
+        <img
+          className="mx-2"
+          src={props.type === "large" ? CalendarIcon : ClockIcon}
+          alt="Date"
+        />
+        <p className="text-gray text-sm">{props.date}</p>
+      </div>
+    </div>
+  );
 }

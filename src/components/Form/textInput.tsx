@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React, { ChangeEvent } from "react";
 
 type Input = {
   title: string;
@@ -8,6 +8,7 @@ type Input = {
   changeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
+// INPUT TEXT
 export default function TextInput(props: Input) {
   return (
     <div className="mb-2">

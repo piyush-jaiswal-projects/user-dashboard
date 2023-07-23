@@ -1,6 +1,6 @@
-import { DashboardIcon, AssessmentIcon, LibraryIcon, RoundStatusIcon } from "../assets/icons/index"
+import { DashboardIcon, AssessmentIcon, LibraryIcon, RoundStatusIcon } from "../assets/index"
 
-
+//navigation bar data
 const navItems = [
     {
         image: DashboardIcon,
