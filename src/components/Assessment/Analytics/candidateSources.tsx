@@ -11,7 +11,7 @@ export default function CandidateSource(props: {
 })
 {
     return (
-        <div className="h-[130px] md:h-[100%] border p-2 md:p-5 text-left">
+        <div className="h-auto flex-grow md:border p-2 md:p-3 text-left">
           <h1 className="w-[100%] text-md md:text-lg text-left font-semibold">
             Candidates Source
           </h1>

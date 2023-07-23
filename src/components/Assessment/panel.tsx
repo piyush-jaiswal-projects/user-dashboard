@@ -21,7 +21,7 @@ export default function Panel(props: {
       <div className="w-[100vw] md:w-[100%] mx-auto p-2">
         <section className="w-[90%] flex justify-between">
           <h1 className="text-2xl text-left w-[100%]">{props.title}</h1>
-          {width <= 768 && 
+          {width <= 600 && 
             <div className='flex justify-center items-center'>
               <img className='p-2' src={SearchIcon} alt="" />
               <img className='p-2' src={FunnelIcon} alt="" />

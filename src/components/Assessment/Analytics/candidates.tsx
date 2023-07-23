@@ -8,7 +8,7 @@ export default function Candidates(props: {
     whoAttemptedIncrement: string;
 }) {
     return (
-        <div className="border p-2 md:p-5 text-left h-[130px] md:h-[100%]">
+        <div className="border flex-grow sm:border-0 md:border p-2 md:p-3 text-left h-auto">
           <h1 className="w-[100%] text-md md:text-lg text-left font-semibold">
             Candidates
           </h1>
