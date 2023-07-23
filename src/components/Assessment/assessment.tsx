@@ -22,7 +22,7 @@ export default function Assessment() {
     }
 
     return (
-            <div className='w-[100vw] md:w-[100%] bg-white text-center my-1 rounded-3xl'>
+            <div className='w-[100vw] md:w-[100%] min-h-[90vh] bg-white text-center my-1 rounded-3xl'>
             <Header changeAssessment={changeAssessmentType} />
             <View currAssessment={currAssessment} />
             </div>

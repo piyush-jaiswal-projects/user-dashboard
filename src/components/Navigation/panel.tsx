@@ -11,7 +11,7 @@ export default function Panel(props: Props) {
     const width = useWindowWidth()
 
     return (
-        <div className='w-[100%] md:w-[20%] lg:w-[11%] bg-white h-[100%] py-7 px-2'>
+        <div className='w-[100%] md:w-[20%] lg:w-[10%] bg-white h-[100%] py-0 px-2'>
 
             <div className='w-[100%] mx-auto'>
             {navItems.map((item) => {
@@ -37,7 +37,7 @@ export default function Panel(props: Props) {
                     w-[100%] md:w-[80%] text-center mx-auto py-2'>
                     <div
                         className='bg-[#FBEBEA] text-[#D63500] border-[#D63500] 
-                         w-[80%] border p-1 text-center rounded-3xl '>
+                         w-[60%] border text-center text-sm rounded-3xl mt-4 my-2'>
                         Admin
                     </div>
                     <Card clickHandler={props.handler} data={adminItem} />

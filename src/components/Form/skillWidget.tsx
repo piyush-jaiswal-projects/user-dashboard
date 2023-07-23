@@ -9,8 +9,8 @@ type Skill = {
 export default function SkillWidget(props: Skill) {
   return (
     <span
-      className="bg-[#DDEDFF] p-2 m-[5px] flex justify-between 
-        min-w-auto h-[40px] items-center rounded-2xl"
+      className="bg-[#DDEDFF] px-2 m-[2px]  md:m-[5px] flex justify-between 
+        min-w-auto md:h-[40px] text-[3vw] sm:text-[2vw] md:text-[1.5vw] lg:text-[1.1vw] items-center rounded-3xl"
     >
       {props.title}
       <button

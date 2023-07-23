@@ -2,6 +2,7 @@ import React from "react";
 import {
   AssessIcon,
   CalendarIcon,
+  ClockIcon,
   OptionsIcon,
   UrlIcon,
 } from "../../assets/icons";
@@ -12,8 +13,8 @@ type Props = {
     title: string;
     purpose: string;
     date: string;
-    duration: number;
-    question: number;
+    duration: string;
+    question: string;
     sharedList: string[];
   };
 };
@@ -55,11 +56,11 @@ export default function AssessCard(props: Props) {
       <div className="border-t border-dashed w-[100%] flex justify-between py-2 items-center">
         <div className="flex justify-start items-center">
           <div className="flex flex-col justify-center items-start mr-2">
-            <p className="text-md text-bold">{props.data.duration}</p>
+            <p className="text-md font-bold">{props.data.duration}</p>
             <label className="text-sm">Duration</label>
           </div>
           <div className="flex flex-col justify-center items-start">
-            <p className="text-md text-bold">{props.data.question}</p>
+            <p className="text-md font-bold">{props.data.question}</p>
             <label className="text-sm">Questions</label>
           </div>
         </div>
@@ -103,7 +104,7 @@ function CardBody(props: {
           <p className="text-sm text-left font-semibold border-r pr-2">
             {props.purpose}
           </p>
-          <img className="mx-2" src={CalendarIcon} alt="Date" />
+          <img className="mx-2" src={props.type === "large" ? CalendarIcon : ClockIcon} alt="Date" />
           <p className="text-gray text-sm">{props.date}</p>
         </div>
           </div>

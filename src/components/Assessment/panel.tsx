@@ -18,17 +18,17 @@ export default function Panel(props: {
   }
 
     return (
-      <div className="w-[100vw] md:w-[100%] mx-auto p-2">
-        <section className="w-[90%] flex justify-between">
-          <h1 className="text-2xl text-left w-[100%]">{props.title}</h1>
+      <div className="mx-auto p-2">
+        <section className="w-[90%] md:w-[100%] mx-auto flex md:block justify-between">
+          <h1 className="text-lg text-left w-[100%] md:ml-3">{props.title}</h1>
           {width <= 600 && 
             <div className='flex justify-center items-center'>
-              <img className='p-2' src={SearchIcon} alt="" />
-              <img className='p-2' src={FunnelIcon} alt="" />
+              <img className='p-1' src={SearchIcon} alt="" />
+              <img className='p-1' src={FunnelIcon} alt="" />
               <img
                 onClick={openAnalytics}
                 id="analytics-btn"
-                className='cursor-pointer rounded-full p-2'
+                className='cursor-pointer rounded-full p-1'
                 src={AnalyticsIcon} alt="" />
             </div>
           }
@@ -41,7 +41,7 @@ export default function Panel(props: {
             <div
               className="rounded-full cursor-pointer bg-white w-[50px] h-[50px] flex justify-center items-center"
               onClick={() => {
-                document.getElementById("form")?.classList.remove("hidden");
+                document.getElementById("form")?.classList.remove("hidden")
               }}
             >
               <img src={PlusIcon} alt="+" />

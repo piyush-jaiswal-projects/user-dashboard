@@ -29,14 +29,14 @@ code {
 
 #menu{
   left: -100vw;
-  transition: left 0.3s ease;
-  animation: slidein ease-in 0.5s forwards;
+  transition: left 0.2s ease;
+  animation: slidein ease-in 0.2s forwards;
 }
 
 #menu.close-menu{
   left: 0vw;
-  transition: left 0.3s ease;
-  animation: slideout ease-in 0.5s forwards;
+  transition: left 0.2s ease;
+  animation: slideout ease-in 0.2s forwards;
 }
 
 @keyframes slidein {
@@ -59,8 +59,8 @@ code {
 
 #form{
   bottom: -100vw;
-  transition: bottom 0.3s linear;
-  animation: slideup linear 0.3s forwards;
+  transition: bottom 0.2s linear;
+  animation: slideup linear 0.2s forwards;
 }
 
 @keyframes slideup {
@@ -78,7 +78,7 @@ code {
 }
 
 .slidedown{
-  height: 450px;
+  height: 350px;
 }
 
 button{
@@ -86,7 +86,7 @@ button{
 }
 
 .selected-assessment{
-  border-bottom: #0073E6 4px solid;
+  border-bottom: #0073E6 2px solid;
   color: #0073E6;
   font-weight: bold;
 }

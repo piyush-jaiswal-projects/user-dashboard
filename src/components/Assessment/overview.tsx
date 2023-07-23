@@ -25,7 +25,7 @@ type Props = {
 export default function Overview(props: Props) {
   const width = useWindowWidth()
   return (
-    <div className="p-2 overflow-x-hidden">
+    <div className="overflow-x-hidden">
       {width > 600 ? 
         <LargeScreenLayout data={props.data} />
         : 
@@ -38,15 +38,15 @@ export default function Overview(props: Props) {
 function LargeScreenLayout(props: Props) {
   const width = useWindowWidth()
 
-  const className:string = width >= 1300 ?
-    "p-0 w-[72rem] mx-auto flex flex-wrap items-center border-2 rounded-lg my-2"
+  const className:string = width >= 1400 ?
+    "p-0 w-[80rem] mx-auto flex flex-wrap items-center border-2 rounded-lg my-2"
     :
     "p-0 w-[70vw] inline mx-auto flex flex-wrap sm:justify-between md:justify-start items-center border-2 rounded-lg my-2"
 
   return (
-    <div className="mx-auto">
-      <section className="w-[90%]">
-        <h1 className="text-2xl text-left w-[100%]">Assessments Overview</h1>
+    <div className="mx-auto my-2 p-2">
+      <section className="w-[100%] mx-auto">
+        <h1 className="text-lg text-left w-[100%]">Assessments Overview</h1>
       </section>
         <div
         className={className}
@@ -78,9 +78,6 @@ function LargeScreenLayout(props: Props) {
 function SmallScreenLayout(props: Props) {
   return (
     <div id="analytics" className="w-[100%] analytics">
-      <section className="w-[90%]">
-        <h1 className="text-xl pt-1 text-left w-[100%]">Assessments Overview</h1>
-      </section>
     <div
       className="border rounded-lg mx-auto w-[100%]"
     >

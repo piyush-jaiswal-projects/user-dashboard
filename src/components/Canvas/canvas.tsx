@@ -6,7 +6,7 @@ export default function Canvas() {
     const context = useContext(ViewContext)
 
     return (
-        <div className='md:w-[78%] lg:w-[88%] h-[95vh]'>
+        <div className='w-[100%] md:w-[78%] lg:w-[89%]'>
             {context?.view === "Dashboard" && <Dashboard />}
             {context?.view === "Assessment" && <Assessment />}
             {context?.view === "My Library" && <Library />}

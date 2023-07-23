@@ -34,14 +34,14 @@ export default function Card(props: Props) {
         <div
             id={props.data.title}
             onClick={navigateItem}
-            className='flex cursor-pointer my-3 md:flex-col text-left
-            items-center md:justify-center md:text-center p-1 mx-auto w-[80%] md:h-[90px]'>
+            className='flex cursor-pointer my-3 md:my-0 md:flex-col text-left
+            items-center md:justify-center md:text-center p-1 mx-auto w-[80%] md:w-[85%] md:h-[80px]'>
             <img
-                className='mr-2 md:mx-auto'
+                className='mr-2 md:mx-auto fill-slate-500'
                 src={props.data.image}
                 alt={props.data.title} />
             
-            <p className='text-[1rem] lg:text-[1.2vw]'>
+            <p className='text-[1rem] lg:text-[1vw]'>
                 {props.data.title}
             </p>
         </div>

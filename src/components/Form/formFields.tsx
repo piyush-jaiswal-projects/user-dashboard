@@ -81,7 +81,7 @@ export default function FormFields() {
   return (
       <div className="w-[95%] mx-auto flex flex-col mt-1 p-1">
         
-        <div className="h-[65vh] overflow-scroll sm:h-auto">
+        <div className="h-[55vh] sm:h-[65vh] md:h-[78vh] overflow-scroll">
         <TextInput
           title="name"
           text="Name of assessment"

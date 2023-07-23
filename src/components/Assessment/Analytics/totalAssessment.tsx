@@ -10,7 +10,7 @@ export default function TotalAssessment(props: {
             Total Assessment
           </h1>
           <div className="flex justify-start items-center my-3 md:mb-5 md:mt-4">
-            <img className="mx-2 md:mx-1" src={TotalAssessIcon} alt="" />
+            <img className=" md:mx-1" src={TotalAssessIcon} alt="" />
             <div className="px-2 mx-2">
               <span className="flex justify-start items-center">
                               <p className="text-2xl md:text-3xl font-bold">{props.totalAssessment}</p>
