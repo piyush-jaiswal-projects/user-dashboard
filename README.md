@@ -1,6 +1,7 @@
 # USER DASHBOARD
 This project was bootstrapped with Create React App
 [Live Project](https://unstop-dashboard.vercel.app/)
+[GIT REPO](https://github.com/piyush-jaiswal-projects/user-dashboard)
 
 ## TECH
 + HTML - CSS - JAVASCRIPT
